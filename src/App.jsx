@@ -17,7 +17,7 @@ const PageLoader = () => (
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const location = useLocation();
-  const isThreeDemo = location.pathname === '/3d-demo';
+  const isThreeDemo = location.pathname === '/3d-demo' || location.pathname === '/cv/3d-demo';
 
   return (
     <div className="app">
@@ -28,8 +28,8 @@ function App() {
       <main>
         <Suspense fallback={<PageLoader />}>
           <Routes>
-            <Route path="/" element={<HomePage />} />
             <Route path="/3d-demo" element={<ThreeDemoPage />} />
+            <Route path="*" element={<HomePage />} />
           </Routes>
         </Suspense>
       </main>

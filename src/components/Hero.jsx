@@ -24,10 +24,13 @@ function Hero() {
   );
 
   useEffect(() => {
+    const nodes = [badgeRef.current, titleRef.current, subtitleRef.current, actionsRef.current, scrollRef.current];
+    if (nodes.some((n) => !n)) return;
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-      gsap.set([badgeRef.current, titleRef.current, subtitleRef.current, actionsRef.current, scrollRef.current], {
+      gsap.set(nodes, {
         opacity: 0,
         y: 50
       });
