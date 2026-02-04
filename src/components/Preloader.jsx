@@ -131,10 +131,9 @@ function Preloader({ onComplete }) {
         <div className="preloader__rings">
           <div className="preloader__ring"></div>
           <div className="preloader__ring preloader__ring--reverse"></div>
-        </div>
-        
-        <div className="preloader__logo">
-          AV<span>.</span>
+          <div className="preloader__logo">
+            AV<span>.</span>
+          </div>
         </div>
 
         <div className="preloader__progress-container">
