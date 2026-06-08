@@ -6,8 +6,6 @@ import AnimatedText from './AnimatedText';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FORMPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
-
 function Contact() {
   const { email } = portfolioData.personal;
   const { github, linkedin, telegram } = portfolioData.social;
@@ -124,7 +122,7 @@ function Contact() {
     return () => ctx.revert();
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button[type="submit"]');
     const form = e.target;
@@ -141,43 +139,31 @@ function Contact() {
     });
     
     const formData = new FormData(form);
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      message: formData.get('message')
-    };
-    
-    try {
-      const response = await fetch(FORMPREE_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      });
-      
-      if (response.ok) {
-        setSubmitStatus('success');
-        form.reset();
-        
-        gsap.fromTo(btn, 
-          { scale: 1 },
-          { 
-            scale: 1.1, 
-            duration: 0.3,
-            ease: 'back.out(1.7)',
-            yoyo: true,
-            repeat: 1
-          }
-        );
-      } else {
-        throw new Error('Ошибка отправки');
+    const name = formData.get('name');
+    const senderEmail = formData.get('email');
+    const message = formData.get('message');
+
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${senderEmail}\n\n${message}`
+    );
+
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+
+    setSubmitStatus('success');
+    form.reset();
+    setIsSubmitting(false);
+
+    gsap.fromTo(btn, 
+      { scale: 1 },
+      { 
+        scale: 1.1, 
+        duration: 0.3,
+        ease: 'back.out(1.7)',
+        yoyo: true,
+        repeat: 1
       }
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
+    );
   };
 
   return (
@@ -246,18 +232,12 @@ function Contact() {
               className="btn btn--primary btn--full"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
+              {isSubmitting ? 'Opening email...' : 'Send Message'}
             </button>
             
             {submitStatus === 'success' && (
               <div className="contact__message contact__message--success">
-                Сообщение отправлено! Я свяжусь с вами в ближайшее время.
-              </div>
-            )}
-            
-            {submitStatus === 'error' && (
-              <div className="contact__message contact__message--error">
-                Произошла ошибка при отправке. Попробуйте еще раз или напишите напрямую на {email}.
+                Your email client should open with a pre-filled message. If it did not, write directly to {email}.
               </div>
             )}
           </form>

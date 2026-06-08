@@ -1,16 +1,47 @@
-# React + Vite
+# CV — Andrii Veliksar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio and CV site built with React, Vite, and GSAP.
 
-Currently, two official plugins are available:
+**Live:** [veliksar.github.io/cv](https://veliksar.github.io/cv/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## React Compiler
+- React 19 + Vite 5
+- React Router (GitHub Pages, base `/cv/`)
+- GSAP + ScrollTrigger animations
+- Three.js demo page (`/3d-demo`)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Local development
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Build & preview
+
+```bash
+npm run build
+npm run preview
+```
+
+## Deploy
+
+Push to `main` triggers GitHub Actions workflow (`.github/workflows/deploy.yml`) and publishes to GitHub Pages.
+
+## Structure
+
+```
+src/
+  components/   UI sections (Hero, Skills, Experience, Contact, etc.)
+  data/         portfolioData.js — single source of content
+  pages/        HomePage, ThreeDemoPage
+  hooks/        GSAP helpers
+```
+
+Content (experience, skills, contacts) is edited in `src/data/portfolioData.js`.
+
+## Author
+
+**Andrii Veliksar** — Fullstack WordPress Developer  
+[GitHub](https://github.com/Veliksar) · [LinkedIn](https://linkedin.com/in/andrew-veliksar-ukraine/) · aveliksar97@gmail.com

@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import CustomCursor from './components/CustomCursor';
 import Preloader from './components/Preloader';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -21,6 +22,8 @@ function App() {
 
   return (
     <div className="app">
+      <a href="#hero" className="skip-link">Skip to content</a>
+      <ScrollToTop />
       {!isLoaded && !isThreeDemo && <Preloader onComplete={() => setIsLoaded(true)} />}
       
       <CustomCursor />

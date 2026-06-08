@@ -409,15 +409,20 @@ function DinoGame({ gameState, setGameState, onScoreUpdate }) {
   const speedRef = useRef(5);
   
   useEffect(() => {
-    if (gameState === 'playing') {
-      scoreRef.current = 0;
-      speedRef.current = 5;
+    if (gameState !== 'playing') return;
+
+    scoreRef.current = 0;
+    speedRef.current = 5;
+    velocityRef.current = 0;
+    onScoreUpdate(0);
+
+    const frameId = requestAnimationFrame(() => {
       setObstacles([{ x: 8, height: 1 }, { x: 14, height: 0.7 }]);
       setDinoY(0);
       setIsJumping(false);
-      velocityRef.current = 0;
-      onScoreUpdate(0);
-    }
+    });
+
+    return () => cancelAnimationFrame(frameId);
   }, [gameState, onScoreUpdate]);
 
   const jump = useCallback(() => {

@@ -4,7 +4,7 @@ import portfolioData from '../data/portfolioData';
 import TypewriterText from './TypewriterText';
 
 function Hero() {
-  const { name, title, subtitle } = portfolioData.personal;
+  const { title, subtitle } = portfolioData.personal;
   const heroRef = useRef(null);
   const badgeRef = useRef(null);
   const titleRef = useRef(null);

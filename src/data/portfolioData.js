@@ -1,6 +1,6 @@
 const portfolioData = {
   personal: {
-    name: "Andrii V.",
+    name: "Andrii Veliksar",
     title: "Fullstack WordPress Developer",
     subtitle: "5+ Years of Commercial Work Experience",
     location: "Ukraine",

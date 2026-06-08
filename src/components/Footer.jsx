@@ -187,7 +187,7 @@ function Footer() {
             WordPress Developer crafting digital experiences
           </p>
           <div className="footer__copy">
-            © {currentYear} Andrii V. All rights reserved.
+            © {currentYear} Andrii Veliksar. All rights reserved.
           </div>
         </div>
       </div>

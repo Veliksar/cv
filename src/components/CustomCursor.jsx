@@ -1,13 +1,19 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 function CustomCursor() {
   const cursorRef = useRef(null);
   const cursorDotRef = useRef(null);
   const cursorOutlineRef = useRef(null);
+  const [isEnabled] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return !isTouchDevice && !prefersReducedMotion && window.innerWidth > 768;
+  });
 
   useEffect(() => {
-    const cursor = cursorRef.current;
+    if (!isEnabled) return;
     const dot = cursorDotRef.current;
     const outline = cursorOutlineRef.current;
 
@@ -111,7 +117,9 @@ function CustomCursor() {
     observer.observe(document.body, { childList: true, subtree: true });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isEnabled]);
+
+  if (!isEnabled) return null;
 
   return (
     <div className="custom-cursor" ref={cursorRef}>

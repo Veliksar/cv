@@ -48,8 +48,17 @@ function Preloader({ onComplete }) {
     });
   }, []);
 
+  const [particlesArray] = useState(() =>
+    [...Array(40)].map((_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: 1 + Math.random() * 3,
+      opacity: 0.2 + Math.random() * 0.5
+    }))
+  );
+
   useEffect(() => {
-    let currentProgress = 0;
     const targetProgress = 100;
     const duration = 2000;
     const startTime = Date.now();
@@ -58,7 +67,6 @@ function Preloader({ onComplete }) {
       const elapsed = Date.now() - startTime;
       const newProgress = Math.min((elapsed / duration) * targetProgress, targetProgress);
       
-      currentProgress = newProgress;
       setProgress(Math.round(newProgress));
 
       if (progressRef.current) {
@@ -100,14 +108,6 @@ function Preloader({ onComplete }) {
 
     requestAnimationFrame(updateProgress);
   }, [onComplete]);
-
-  const particlesArray = [...Array(40)].map((_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: 1 + Math.random() * 3,
-    opacity: 0.2 + Math.random() * 0.5
-  }));
 
   return (
     <div className="preloader" ref={preloaderRef}>
