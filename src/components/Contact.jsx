@@ -177,9 +177,11 @@ function Contact() {
         <div className="contact__grid">
           <div className="contact__info" ref={infoRef}>
             <p className="contact__text">
-              I'm currently available for freelance work and part-time positions. 
-              If you have a project that needs some awesome WordPress development, 
-              I'd love to hear about it.
+            I'm open to long-term collaboration — whether that's employment or a contract, 
+            part-time or full-time, with a schedule we can align to your team. 
+            I'm not looking for a specific label; I'm looking for solid WordPress work done well. 
+            If you have a project that needs a reliable developer, 
+            I'd love to hear from you. Drop me a line below.
             </p>
             
             <div className="contact__methods">

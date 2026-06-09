@@ -55,7 +55,7 @@ const portfolioData = {
       title: "Web Developer",
       company: "TemplateMonster · Freelance",
       period: "March 2019 – November 2020",
-      type: "Full-time → Part-time",
+      type: "Full-time · Part-time",
       description: [
         "PrestaShop theme development at TemplateMonster — commercial web entry point",
         "Freelance: HTML/CSS templates, site speed optimization, client fixes",
@@ -70,7 +70,7 @@ const portfolioData = {
       period: "March 2021 – February 2023",
       type: "Full-time · Remote · White-label",
       description: [
-        "Delivered 25+ WordPress/WooCommerce projects for US and EU clients",
+        "Delivered 30+ WordPress/WooCommerce projects for US and EU clients",
         "Custom themes, WooCommerce stores, performance optimization",
         "Team coordination, code review, mentoring junior developers",
         "Career progression: mid-level → senior → Team Lead"
