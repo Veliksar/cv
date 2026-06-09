@@ -15,7 +15,7 @@ function Marquee() {
       gsap.set(track1Inner, { x: 0 });
       gsap.to(track1Inner, {
         x: -width,
-        duration: 30,
+        duration: 40,
         ease: 'none',
         repeat: -1
       });
@@ -27,7 +27,7 @@ function Marquee() {
       gsap.set(track2Inner, { x: -width });
       gsap.to(track2Inner, {
         x: 0,
-        duration: 35,
+        duration: 47,
         ease: 'none',
         repeat: -1
       });

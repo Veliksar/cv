@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 
 function Header() {
@@ -126,16 +125,6 @@ function Header() {
               >
                 Contact
               </button>
-            </li>
-            <li>
-              <Link 
-                to="/3d-demo"
-                className="header__menu-link"
-                onMouseEnter={(e) => handleButtonHover(e, true)}
-                onMouseLeave={(e) => handleButtonHover(e, false)}
-              >
-                3D Demo
-              </Link>
             </li>
           </ul>
         </nav>

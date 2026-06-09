@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import portfolioData from '../data/portfolioData';
@@ -11,6 +11,7 @@ function Experience() {
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
   const timelineRef = useRef(null);
+  const [expandedDetailsId, setExpandedDetailsId] = useState(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -105,21 +106,50 @@ function Experience() {
               key={job.id} 
               className={`experience__item ${index % 2 === 0 ? 'left' : 'right'}`}
             >
-              <div className="experience__card glow-border">
+              <div className={`experience__card glow-border${job.featured ? ' experience__card--featured' : ''}`}>
                 <div className="experience__header">
                   <span className="experience__period">{job.period}</span>
-                  <span className="experience__type">{job.type}</span>
+                  <div className="experience__header-meta">
+                    {job.featured && <span className="experience__badge">Featured</span>}
+                    <span className="experience__type">{job.type}</span>
+                  </div>
                 </div>
-                
+
                 <h3 className="experience__title">{job.title}</h3>
                 <h4 className="experience__company">{job.company}</h4>
-                <p className="experience__location">{job.location}</p>
-                
+                {job.location && <p className="experience__location">{job.location}</p>}
+
                 <ul className="experience__list">
                   {job.description.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
+
+                {job.details && (
+                  <div className="experience__details">
+                    <button
+                      type="button"
+                      className="experience__details-toggle"
+                      aria-expanded={expandedDetailsId === job.id}
+                      onClick={() => setExpandedDetailsId(expandedDetailsId === job.id ? null : job.id)}
+                    >
+                      Agency breakdown
+                      <span className="experience__details-icon" aria-hidden="true">
+                        {expandedDetailsId === job.id ? '−' : '+'}
+                      </span>
+                    </button>
+                    {expandedDetailsId === job.id && (
+                      <ul className="experience__details-list">
+                        {job.details.map((detail, i) => (
+                          <li key={i}>
+                            <span className="experience__details-company">{detail.company}</span>
+                            <span className="experience__details-period">{detail.period}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )}
               </div>
               
               <div className="experience__dot">

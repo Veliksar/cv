@@ -1,167 +1,111 @@
 const portfolioData = {
   personal: {
     name: "Andrii Veliksar",
-    title: "Fullstack WordPress Developer",
-    subtitle: "5+ Years of Commercial Work Experience",
+    title: "Full Stack WordPress & WooCommerce Developer",
+    subtitle: "6+ Years of Commercial Work Experience",
     location: "Ukraine",
     email: "aveliksar97@gmail.com",
-    profile: `As a WordPress developer, I have extensive experience in designing and implementing custom WordPress websites, themes, and plugins. I am highly skilled in PHP, HTML, CSS, JavaScript, and other web dev technologies. With a deep understanding of user experience design, I am able to create highly functional and visually appealing websites that are responsive and optimized for search engines. I strive for high quality work and do my best to achieve the best possible outcome for the client's business.`
+    profile: `I'm Andrew, a WordPress & WooCommerce developer with 6+ years of hands-on experience delivering custom-coded stores, 
+    performance optimization, and long-term maintenance for US, UK, and EU clients — primarily through digital agencies and white-label partnerships.
+    As Tech Lead on weed.com (~3,000 SKUs), I improved PageSpeed from 67→91 mobile and 78→98 desktop. 
+    I focus on clean PHP/JS architecture, safe staging-based updates, and stores that stay fast and stable after WooCommerce core updates — not page-builder bloat.`
   },
 
   skills: {
     frontend: [
-      "HTML5", "CSS3",
-      "SCSS", "SASS", "LESS",
-      "Tailwind CSS",
-      "JavaScript", "jQuery", "AJAX", "JSON",
-      "GSAP", "Parallax", "Three.js",
-      "Bootstrap", "Zurb Foundation", "Masonry",
-      "BEM"
+      "HTML5", "CSS3", "SCSS", "SASS",
+      "JavaScript (ES6+)", "jQuery", "AJAX", "JSON",
+      "Bootstrap", "BEM", "Tailwind CSS",
+      "GSAP", "Parallax", "Three.js", "Canvas",
+      "Swiper", "AOS",
+      "Figma", "Photoshop", "Sketch"
     ],
     backend: [
-      "PHP", "MySQL", "SQL", "Database Design",
-      "REST API",
-      "WordPress Theme Development", "WordPress Plugin Development",
-      "WordPress API",
-      "WooCommerce", "eCommerce",
-      "WPML", "Polylang",
-      "ACF Pro", "ACF + Gutenberg Blocks",
-      "OOP"
-    ],
-    tools: [
-      "Git", "GitHub", "BitBucket",
-      "npm", "Composer",
-      "Node.js", "Gulp", "Yarn", "Grunt",
-      "SSH", "Apache", "phpMyAdmin",
-      "Trello", "Jira",
-      "Vim", "Emmet", "Blade"
-    ],
-    design: [
-      "Figma", "Figma to WordPress",
-      "Adobe XD", "Photoshop",
-      "Illustrator", "InDesign", "Sketch", "Avocode"
+      "PHP", "SQL", "REST API",
+      "WP-CLI", "CRON", "Transients"
     ],
     wordpress: [
-      "WordPress",
-      "Custom Themes", "Premium Themes", "WordPress Themes",
-      "Elementor Pro",
-      "Gutenberg",
-      "Custom Solutions", "Custom Plugins", "WordPress Plugins",
-      "SEO Optimization", "Yoast SEO",
-      "Speed Optimization", "Pagespeed Optimization"
+      "Sage", "Underscores", "Child Themes",
+      "ACF PRO", "Gutenberg Custom Blocks", "CPT UI",
+      "WPML", "Polylang", "Loco Translate",
+      "Multisite", "Membership Sites", "Headless WP (Basic)"
+    ],
+    woocommerce: [
+      "Custom Templates", "Checkout Flow", "Payment Gateways",
+      "HPOS", "AJAX Cart/Filters", "Large Catalog Optimization"
+    ],
+    plugins: [
+      "Gravity Forms", "Ninja Forms", "WPForms", "CF7",
+      "WP Rocket", "W3TC", "Perfmatters", "Imagify", "WebP",
+      "Yoast", "RankMath",
+      "Wordfence", "Sucuri",
+      "Mailchimp", "Brevo",
+      "UpdraftPlus", "Duplicator", "All-in-One WP Migration"
+    ],
+    devops: [
+      "Git (GitHub/GitLab)", "CI/CD",
+      "Docker", "DigitalOcean", "Cloudflare",
+      "WP Engine", "SSL", "Migrations"
     ]
   },
 
   experience: [
     {
       id: 1,
-      title: "Middle+ WordPress Developer",
-      company: "DreamDevSolutions",
-      period: "July 2025 - Present",
-      type: "Part time - remote",
-      location: "Odesa, Ukraine",
+      title: "Web Developer",
+      company: "TemplateMonster · Freelance",
+      period: "March 2019 – November 2020",
+      type: "Full-time → Part-time",
       description: [
-        "Maintaining and updating the client's website",
-        "Creating and supporting websites for clients' business",
-        "Redesign, optimization and improvement of websites",
-        "Problem solving and fixing"
-      ]
-    },
-    {
-      id: 8,
-      title: "Freelance WordPress Developer",
-      company: "Self-employed",
-      period: "July 2024 - May 2025",
-      type: "Freelance - remote",
-      location: "Ukraine",
-      description: [
-        "Maintaining and updating the client's website",
-        "Creating and supporting websites for clients' business",
-        "Redesign, optimization and improvement of websites",
-        "Problem solving and fixing"
+        "PrestaShop theme development at TemplateMonster — commercial web entry point",
+        "Freelance: HTML/CSS templates, site speed optimization, client fixes",
+        "Transition to WordPress-focused development from 2021"
       ]
     },
     {
       id: 2,
-      title: "Middle+ WordPress Developer",
-      company: "Synapse Team",
-      period: "August 2023 - June 2024",
-      type: "Full time - remote",
-      location: "Odesa, Ukraine",
+      featured: true,
+      title: "Team Lead",
+      company: "White Label Agency",
+      period: "March 2021 – February 2023",
+      type: "Full-time · Remote · White-label",
       description: [
-        "Creating and editing WordPress custom/premium themes and plugins",
-        "WooCommerce development",
-        "Woo customization"
+        "Delivered 25+ WordPress/WooCommerce projects for US and EU clients",
+        "Custom themes, WooCommerce stores, performance optimization",
+        "Team coordination, code review, mentoring junior developers",
+        "Career progression: mid-level → senior → Team Lead"
       ]
     },
     {
       id: 3,
-      title: "Middle+ WordPress Developer",
-      company: "GT",
-      period: "May 2023 - March 2024",
-      type: "Part time - remote",
-      location: "Odesa, Ukraine",
+      featured: true,
+      title: "WordPress Developer → Lead Developer @ weed.com",
+      company: "Synapse Team (outstaff on client project)",
+      period: "July 2023 – June 2024",
+      type: "Full-time · Remote · Client outstaff",
       description: [
-        "Creating and editing WordPress custom/premium themes and plugins",
-        "WooCommerce development",
-        "Woo customization",
-        "Google Map API integration"
+        "Lead Developer on weed.com (US CannaTech, 3,000+ SKUs), Sept 2023 – May 2024",
+        "PageSpeed: mobile 67→91, desktop 78→98",
+        "Custom WP/Woo architecture, query optimization, caching at scale",
+        "Outstaff role — lead developer on client side, not a Synapse company lead"
       ]
     },
     {
       id: 4,
-      title: "Middle+ WordPress Developer",
-      company: "Markupus",
-      period: "April 2023 - August 2023",
-      type: "Full time - remote",
-      location: "Odesa, Ukraine",
+      title: "WordPress Developer (Contract)",
+      company: "Markupus · GT · 7Devs · Dreamdev Solutions",
+      period: "April 2023 – April 2026",
+      type: "Contract · Remote · US/EU agencies",
       description: [
-        "Creating and editing WordPress custom/premium themes and plugins",
-        "WooCommerce development"
-      ]
-    },
-    {
-      id: 5,
-      title: "Middle WordPress Developer / Teamlead",
-      company: "White Label Agency",
-      period: "March 2021 - February 2023",
-      type: "Full time",
-      location: "Mykolaiv, Ukraine",
-      description: [
-        "Career growth: Junior → Middle → Middle+ → Teamlead",
-        "Creating and editing WordPress custom themes and plugins",
-        "Creating and editing WordPress premium themes and plugins",
-        "Projects management and implementation assistance",
-        "Creation and training of a development team",
-        "Leading one of the departments of WordPress developers",
-        "Optimization and improving"
-      ]
-    },
-    {
-      id: 6,
-      title: "Freelance Web-Developer",
-      company: "Self-employed",
-      period: "August 2019 - December 2020",
-      type: "Part time",
-      location: "Mykolaiv, Ukraine",
-      description: [
-        "Creating HTML/CSS/Bootstrap templates",
-        "SEO/code optimization",
-        "Site speed improving",
-        "Fixes for clients projects"
-      ]
-    },
-    {
-      id: 7,
-      title: "Junior Prestashop Developer",
-      company: "TemplateMonster.com",
-      period: "March 2019 - July 2019",
-      type: "Full time",
-      location: "Odesa, Ukraine",
-      description: [
-        "Creating themes and templates for Prestashop CMS",
-        "Theme and template editing",
-        "Code optimization"
+        "Project-based delivery across 4 agency partnerships",
+        "Custom WP/Woo development, ACF PRO, Gutenberg, checkout customization",
+        "Performance tuning, safe updates, production bug fixes"
+      ],
+      details: [
+        { company: "Markupus", period: "Apr – Aug 2023" },
+        { company: "GT", period: "May – Oct 2023" },
+        { company: "7Devs", period: "Nov 2024 – Apr 2025" },
+        { company: "Dreamdev Solutions", period: "Jul 2025 – Apr 2026" }
       ]
     }
   ],

@@ -14,10 +14,10 @@ function About() {
   const statsRef = useRef(null);
 
   const stats = [
-    { number: '5+', label: 'Years of WordPress Development' },
-    { number: '100+', label: 'Projects Delivered' },
-    { number: '50+', label: 'Satisfied Clients Worldwide' },
-    { number: '90+', label: 'PageSpeed performance scores achieved on multiple websites' }
+    { number: '6+', label: 'Years of Commercial WordPress & WooCommerce Development' },
+    { number: '50+', label: 'Projects Delivered for US/EU Agencies via White-label Partnerships' },
+    { number: '3000+', label: 'SKUs Managed on large eCommerce websites (Performance Optimization & Long-term Maintenance)' },
+    { number: '90+', label: 'PageSpeed performance scores achieved across multiple websites (Mobile & Desktop)' }
   ];
 
   useEffect(() => {
@@ -119,7 +119,7 @@ function About() {
               </div>
               <div className="about__info-item">
                 <span className="about__info-icon">💼</span>
-                <span>Middle+ WordPress Developer</span>
+                <span>Senior WP/Woo Developer</span>
               </div>
               <div className="about__info-item">
                 <span className="about__info-icon">🎓</span>
