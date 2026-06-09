@@ -1,6 +1,11 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {
+  createScrollTriggerConfig,
+  getScrollStart,
+  reconcileScrollTriggers
+} from '../utils/scrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,13 +48,13 @@ function AnimatedText({
           duration: duration,
           stagger: stagger,
           ease: 'back.out(1.7)',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: triggerStart,
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(containerRef.current, {
+            start: triggerStart === 'top 85%' ? getScrollStart() : triggerStart
+          })
         }
       );
+
+      reconcileScrollTriggers(containerRef.current);
     } else {
       gsap.set(chars, { y: 50, opacity: 0, rotateX: -90 });
       gsap.to(chars, {

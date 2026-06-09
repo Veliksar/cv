@@ -3,6 +3,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import portfolioData from '../data/portfolioData';
 import AnimatedText from './AnimatedText';
+import {
+  createScrollTriggerConfig,
+  getScrollStart,
+  reconcileScrollTriggers
+} from '../utils/scrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,11 +32,7 @@ function Contact() {
           opacity: 1,
           duration: 1,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(headerRef.current)
         }
       );
 
@@ -42,11 +43,9 @@ function Contact() {
           opacity: 1,
           duration: 1,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: infoRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(infoRef.current, {
+            start: getScrollStart('top bottom', 'top 80%')
+          })
         }
       );
 
@@ -59,11 +58,9 @@ function Contact() {
           duration: 0.6,
           stagger: 0.15,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: infoRef.current,
-            start: 'top 75%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(infoRef.current, {
+            start: getScrollStart('top bottom', 'top 75%')
+          })
         }
       );
 
@@ -76,11 +73,9 @@ function Contact() {
           duration: 0.5,
           stagger: 0.1,
           ease: 'back.out(1.7)',
-          scrollTrigger: {
-            trigger: infoRef.current,
-            start: 'top 70%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(infoRef.current, {
+            start: getScrollStart('top bottom', 'top 70%')
+          })
         }
       );
 
@@ -92,11 +87,9 @@ function Contact() {
           rotateY: 0,
           duration: 1,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: formRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(formRef.current, {
+            start: getScrollStart('top bottom', 'top 80%')
+          })
         }
       );
 
@@ -109,15 +102,15 @@ function Contact() {
           duration: 0.5,
           stagger: 0.1,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: formRef.current,
-            start: 'top 75%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(formRef.current, {
+            start: getScrollStart('top bottom', 'top 75%')
+          })
         }
       );
 
     }, sectionRef);
+
+    reconcileScrollTriggers(sectionRef.current);
 
     return () => ctx.revert();
   }, []);

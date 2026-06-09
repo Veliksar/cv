@@ -3,6 +3,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import portfolioData from '../data/portfolioData';
 import AnimatedText from './AnimatedText';
+import {
+  createScrollTriggerConfig,
+  getScrollStart,
+  reconcileScrollTriggers
+} from '../utils/scrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,11 +92,7 @@ function Skills() {
           opacity: 1,
           duration: 1,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(headerRef.current)
         }
       );
 
@@ -104,28 +105,31 @@ function Skills() {
           duration: 0.6,
           stagger: 0.1,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: tabsRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(tabsRef.current)
         }
       );
 
       hideGridItems();
 
+      const revealGrid = () => {
+        scrollRevealed.current = true;
+        animateGridIn();
+      };
+
       ScrollTrigger.create({
         trigger: contentRef.current,
-        start: 'top 85%',
-        onEnter: () => {
-          scrollRevealed.current = true;
-          animateGridIn();
-        },
+        start: getScrollStart(),
+        onEnter: revealGrid,
         onLeaveBack: () => {
           scrollRevealed.current = false;
           animateGridOut();
         }
       });
+
+      const contentRect = contentRef.current.getBoundingClientRect();
+      if (contentRect.top < window.innerHeight && contentRect.bottom > 0) {
+        revealGrid();
+      }
 
       const competencyCards = competenciesRef.current.querySelectorAll('.skills__competency');
       gsap.fromTo(competencyCards,
@@ -136,14 +140,14 @@ function Skills() {
           duration: 0.8,
           stagger: 0.2,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: competenciesRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(competenciesRef.current, {
+            start: getScrollStart('top bottom', 'top 80%')
+          })
         }
       );
     }, sectionRef);
+
+    reconcileScrollTriggers(sectionRef.current);
 
     return () => ctx.revert();
   }, [animateGridIn, animateGridOut, hideGridItems]);

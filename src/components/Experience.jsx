@@ -3,6 +3,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import portfolioData from '../data/portfolioData';
 import AnimatedText from './AnimatedText';
+import {
+  createScrollTriggerConfig,
+  getScrollStart,
+  reconcileScrollTriggers
+} from '../utils/scrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,11 +40,7 @@ function Experience() {
           opacity: 1,
           duration: 1,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(headerRef.current)
         }
       );
 
@@ -51,11 +52,9 @@ function Experience() {
             scaleY: 1,
             duration: 1.5,
             ease: 'power2.out',
-            scrollTrigger: {
-              trigger: timelineRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse'
-            }
+            scrollTrigger: createScrollTriggerConfig(timelineRef.current, {
+              start: getScrollStart('top bottom', 'top 80%')
+            })
           }
         );
       }
@@ -76,11 +75,7 @@ function Experience() {
             rotateY: 0,
             duration: 0.8,
             ease: 'power3.out',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
-            }
+            scrollTrigger: createScrollTriggerConfig(item)
           }
         );
 
@@ -90,11 +85,7 @@ function Experience() {
             scale: 1,
             duration: 0.4,
             ease: 'back.out(2)',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
-            }
+            scrollTrigger: createScrollTriggerConfig(item)
           }
         );
       });
@@ -125,6 +116,8 @@ function Experience() {
         });
       }
     }, sectionRef);
+
+    reconcileScrollTriggers(sectionRef.current);
 
     return () => ctx.revert();
   }, []);

@@ -3,6 +3,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import portfolioData from '../data/portfolioData';
 import AnimatedText from './AnimatedText';
+import {
+  createScrollTriggerConfig,
+  getScrollStart,
+  reconcileScrollTriggers
+} from '../utils/scrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,11 +34,7 @@ function About() {
           opacity: 1,
           duration: 1,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(headerRef.current)
         }
       );
 
@@ -44,11 +45,9 @@ function About() {
           opacity: 1,
           duration: 1,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: contentRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(contentRef.current, {
+            start: getScrollStart('top bottom', 'top 80%')
+          })
         }
       );
 
@@ -62,11 +61,9 @@ function About() {
           duration: 0.8,
           stagger: 0.15,
           ease: 'back.out(1.7)',
-          scrollTrigger: {
-            trigger: statsRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
+          scrollTrigger: createScrollTriggerConfig(statsRef.current, {
+            start: getScrollStart('top bottom', 'top 80%')
+          })
         }
       );
 
@@ -83,11 +80,10 @@ function About() {
               duration: 2,
               ease: 'power2.out',
               snap: { innerText: 1 },
-              scrollTrigger: {
-                trigger: stat,
-                start: 'top 85%',
+              scrollTrigger: createScrollTriggerConfig(stat, {
+                once: true,
                 toggleActions: 'play none none none'
-              },
+              }),
               onUpdate: function() {
                 numberEl.textContent = Math.floor(this.targets()[0].innerText) + (endValue.includes('+') ? '+' : '');
               }
@@ -97,6 +93,8 @@ function About() {
       });
 
     }, sectionRef);
+
+    reconcileScrollTriggers(sectionRef.current);
 
     return () => ctx.revert();
   }, []);
