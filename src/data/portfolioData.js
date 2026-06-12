@@ -52,60 +52,87 @@ const portfolioData = {
   experience: [
     {
       id: 1,
-      title: "Web Developer",
-      company: "TemplateMonster · Freelance",
-      period: "March 2019 – November 2020",
-      type: "Full-time · Part-time",
+      title: "WordPress Developer (Contract / Part-time)",
+      company: "Multiple Contract Engagements",
+      period: "February 2025 – May 2026",
+      type: "Contract · Part-time · Remote",
       description: [
-        "PrestaShop theme development at TemplateMonster — commercial web entry point",
-        "Freelance: HTML/CSS templates, site speed optimization, client fixes",
-        "Transition to WordPress-focused development from 2021"
+        "Project-based delivery across 3 agency partnerships (parallel part-time roles)",
+        "Custom WP/Woo builds, Wix Velo integrations, performance tuning, production fixes",
+        "7Devs: getcracked.com eCommerce development"
+      ],
+      details: [
+        { company: "7Devs — getcracked.com", period: "Feb – Jun 2025 · Contract" },
+        { company: "StellarSoft — WP / Wix Velo", period: "Mar 2025 – May 2026 · Part-time" },
+        { company: "DreamDev — WordPress", period: "Jun 2025 – May 2026 · Part-time" }
       ]
     },
     {
       id: 2,
       featured: true,
-      title: "Team Lead",
-      company: "White Label Agency",
-      period: "March 2021 – February 2023",
-      type: "Full-time · Remote · White-label",
-      description: [
-        "Delivered 30+ WordPress/WooCommerce projects for US and EU clients",
-        "Custom themes, WooCommerce stores, performance optimization",
-        "Team coordination, code review, mentoring junior developers",
-        "Career progression: mid-level → senior → Team Lead"
-      ]
-    },
-    {
-      id: 3,
-      featured: true,
       title: "WordPress Developer → Lead Developer @ weed.com",
       company: "Synapse Team (outstaff on client project)",
-      period: "July 2023 – June 2024",
+      period: "January 2024 – January 2025",
       type: "Full-time · Remote · Client outstaff",
       description: [
-        "Lead Developer on weed.com (US CannaTech, 3,000+ SKUs), Sept 2023 – May 2024",
+        "Lead Developer on weed.com (US CannaTech, 3,000+ SKUs), Jan – May 2024",
         "PageSpeed: mobile 67→91, desktop 78→98",
         "Custom WP/Woo architecture, query optimization, caching at scale",
         "Outstaff role — lead developer on client side, not a Synapse company lead"
       ]
     },
     {
-      id: 4,
+      id: 3,
       title: "WordPress Developer (Contract)",
-      company: "Markupus · GT · 7Devs · Dreamdev Solutions",
-      period: "April 2023 – April 2026",
+      company: "Markupus · GT",
+      period: "March 2023 – November 2023",
       type: "Contract · Remote · US/EU agencies",
       description: [
-        "Project-based delivery across 4 agency partnerships",
+        "Project-based delivery across 2 agency partnerships",
         "Custom WP/Woo development, ACF PRO, Gutenberg, checkout customization",
         "Performance tuning, safe updates, production bug fixes"
       ],
       details: [
-        { company: "Markupus", period: "Apr – Aug 2023" },
-        { company: "GT", period: "May – Oct 2023" },
-        { company: "7Devs", period: "Nov 2024 – Apr 2025" },
-        { company: "Dreamdev Solutions", period: "Jul 2025 – Apr 2026" }
+        { company: "Markupus", period: "Mar – Jun 2023 · Contract" },
+        { company: "GT / gt-lifescience.com", period: "Aug – Nov 2023 · Contract" }
+      ]
+    },
+    {
+      id: 4,
+      featured: true,
+      title: "Team Lead",
+      company: "White Label Agency",
+      period: "March 2021 – February 2023",
+      type: "Full-time · Odessa · White-label",
+      description: [
+        "Delivered 30+ WordPress/WooCommerce projects for US and EU clients",
+        "Custom themes, WooCommerce stores, performance optimization",
+        "Team coordination, code review, mentoring junior developers",
+        "Career progression: Junior → Middle → Middle+ / Team Lead responsibilities"
+      ]
+    },
+    {
+      id: 5,
+      title: "Freelance Web Developer",
+      company: "Self-employed",
+      period: "September 2019 – November 2020",
+      type: "Part-time · Freelance",
+      description: [
+        "HTML/CSS templates, site speed optimization, client fixes",
+        "SEO and front-end performance improvements for client projects",
+        "Transition to WordPress-focused development from 2021"
+      ]
+    },
+    {
+      id: 6,
+      title: "Junior PrestaShop Developer",
+      company: "TemplateMonster",
+      period: "March 2019 – July 2019",
+      type: "Full-time",
+      description: [
+        "PrestaShop theme development — commercial web entry point",
+        "Theme and template editing, code optimization",
+        "Foundation for full-stack eCommerce development career"
       ]
     }
   ],

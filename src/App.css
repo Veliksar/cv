@@ -717,10 +717,6 @@
   border-radius: var(--border-radius-xl);
 }
 
-.experience__card:hover {
-  transform: translateY(-5px);
-}
-
 .experience__card::after {
   background: var(--color-dark-light) !important;
 }
